@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Spring Security Example</title>
+        <link rel="stylesheet" type="text/css" href="/style.css"/>
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+        <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Zenicount</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="col-1 ml-auto pl-0 pr-0" th:action="@{/logout}" method="post">
+                    <input class="btn btn-block btn-outline-success" value="logout" type="submit"/>
+                </form>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <div class="col-8 ml-auto mr-auto text-center pt-5">
+                <!--<h2 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]] !</h2>-->
+                <h4 class="mt-5 pt-5">Entrer l'identifiant d'un compte twitter</h4>
+                <form th:action="@{/subscribe}" method="post">
+                    <input id="channel" name="channel" class="form-control form-group form-control-lg"/>
+                    <input class="form-control form-group btn btn-primary" type="submit"/>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

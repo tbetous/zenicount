@@ -1,0 +1,20 @@
+google:
+  oauth2:
+    client:
+      clientId: ${GOOGLE_CLIENT_ID}
+      clientSecret: ${GOOGLE_CLIENT_SECRET}
+      accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+      userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+      clientAuthenticationScheme: form
+      scope:
+        - openid
+        - email
+        - profile
+    resource:
+      userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo
+      preferTokenInfo: true
+twitter:
+  consumerKey: ${TWITTER_CONSUMER_KEY}
+  consumerSecret: ${TWITTER_CONSUMER_SECRET}
+  accessToken: ${TWITTER_TOKEN}
+  accessTokenSecret: ${TWITTER_TOKEN_SECRET}

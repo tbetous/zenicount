@@ -1,0 +1,18 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" [routerLink]="['home']">Zenicount</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['home']">Home</a>
+        </li>
+        <li *ngIf="isAuthenticated | async" class="nav-item">
+          <a class="nav-link" [routerLink]="['configuration','display-value']">Configuration</a>
+        </li>
+      </ul>
+      <button *ngIf="isAuthenticated | async" class="btn btn-outline-secondary col-1" (click)="logout()">Logout</button>
+      <a *ngIf="!(isAuthenticated | async)" href="/api/login" class="btn btn-outline-secondary col-1">Login</a>
+  </div>
+</nav>

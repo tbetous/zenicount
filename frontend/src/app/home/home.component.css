@@ -1,0 +1,88 @@
+.home {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    background: url("test.svg") no-repeat center fixed; 
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.home-title {
+    letter-spacing: 10px;
+    text-align: center;
+    font-size: 10em;
+    border : 10px solid white;
+    border-radius : 5px;
+    padding: 0 30px 0 30px; 
+    margin-bottom: 10%;
+    overflow-y: hidden;    
+}
+
+.letter {
+    color: white;
+    position: relative;
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.test {
+    display:inline-block;
+    height: 40px;
+    border-left: 1px solid black;
+}
+
+@media (max-width: 400px) {
+    .home-title {
+        border : 2px solid white;
+        letter-spacing: 10px;
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 400px) {
+    .home-title {
+        border : 5px solid white;
+        letter-spacing: 10px;
+        font-size: 3em;
+    }
+}
+
+@media (min-width: 575px) {
+    .home-title {
+        border : 7px solid white;
+        letter-spacing: 10px;
+        font-size: 5em;
+    }
+}
+
+@media (min-width: 800px) {
+    .home-title {
+        border : 10px solid white;
+        letter-spacing: 10px;
+        font-size: 7em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .home-title {
+        border : 10px solid white;
+        letter-spacing: 10px;
+        font-size: 9em;
+    }
+}
+
+@media (min-width: 1750px) {
+    .home-title {
+        border : 10px solid white;
+        letter-spacing: 10px;
+        font-size: 10em;
+    }
+}
