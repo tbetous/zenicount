@@ -182,10 +182,20 @@ stepper_tab = [cw5, cw4, cw3, cw2, cw1]
 counter = Counter(stepper_tab)
 #counter.number(44444)
 
+ip = ""
+try:
+    import socket
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    ip = s.getsockname()[0]
+    s.close()
+except Exception:
+    pass
+
 while True:
     sleep(2)
     try:
-        current_count = requests.get(URL)
+        current_count = requests.get(URL+"?"+ip)
     except requests.exceptions.ConnectionError:
         print "Something wrong happened with the request to get count !"
     else:
