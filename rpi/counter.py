@@ -30,7 +30,7 @@ MICRO_STEPS = [
 STEPS = [52, 51, 51, 51, 51, 52, 51, 51, 51, 51]
 
 #URL = os.getenv('COUNTER_URL', 'https://tbetous-zenicount.herokuapp.com/count')
-URL = os.getenv('COUNTER_URL', 'https://zenicount.blaznyoght.space/api/count')
+URL = os.getenv('COUNTER_URL', 'http://zenicount.blaznyoght.space/api/count')
 GPIO.setmode(GPIO.BCM)
 
 class Stepper(object):
