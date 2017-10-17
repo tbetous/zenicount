@@ -30,7 +30,7 @@ MICRO_STEPS = [
 STEPS = [52, 51, 51, 51, 51, 52, 51, 51, 51, 51]
 
 #URL = os.getenv('COUNTER_URL', 'https://tbetous-zenicount.herokuapp.com/count')
-URL = os.getenv('COUNTER_URL', 'https://zenicount.blaznyoght.space/api/count')
+URL = os.getenv('COUNTER_URL', 'http://zenicount.blaznyoght.space/api/count')
 GPIO.setmode(GPIO.BCM)
 
 class Stepper(object):
@@ -161,7 +161,7 @@ s1 = Stepper([12, 16, 20, 21])
 s1.init()
 cw1 = CounterWheel(s1)
 
-s2 = Stepper([6, 13, 19, 26])
+s2 = Stepper([26, 13, 19, 6])
 s2.init()
 cw2 = CounterWheel(s2)
 
@@ -169,7 +169,7 @@ s3 = Stepper([24, 25, 8, 7])
 s3.init()
 cw3 = CounterWheel(s3)
 
-s4 = Stepper([5, 11, 9, 10])
+s4 = Stepper([10, 11, 9, 5])
 s4.init()
 cw4 = CounterWheel(s4)
 
@@ -178,14 +178,24 @@ s5.init()
 cw5 = CounterWheel(s5)
 
 stepper_tab = [cw5, cw4, cw3, cw2, cw1]
-stepper_tab.reverse()
+#stepper_tab.reverse()
 counter = Counter(stepper_tab)
 #counter.number(44444)
+
+ip = ""
+try:
+    import socket
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    ip = s.getsockname()[0]
+    s.close()
+except Exception:
+    pass
 
 while True:
     sleep(2)
     try:
-        current_count = requests.get(URL)
+        current_count = requests.get(URL+"?"+ip)
     except requests.exceptions.ConnectionError:
         print "Something wrong happened with the request to get count !"
     else:
