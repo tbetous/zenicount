@@ -161,7 +161,7 @@ s1 = Stepper([12, 16, 20, 21])
 s1.init()
 cw1 = CounterWheel(s1)
 
-s2 = Stepper([6, 13, 19, 26])
+s2 = Stepper([26, 13, 19, 6])
 s2.init()
 cw2 = CounterWheel(s2)
 
@@ -169,7 +169,7 @@ s3 = Stepper([24, 25, 8, 7])
 s3.init()
 cw3 = CounterWheel(s3)
 
-s4 = Stepper([5, 11, 9, 10])
+s4 = Stepper([10, 11, 9, 5])
 s4.init()
 cw4 = CounterWheel(s4)
 
@@ -178,7 +178,7 @@ s5.init()
 cw5 = CounterWheel(s5)
 
 stepper_tab = [cw5, cw4, cw3, cw2, cw1]
-stepper_tab.reverse()
+#stepper_tab.reverse()
 counter = Counter(stepper_tab)
 #counter.number(44444)
 
